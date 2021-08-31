@@ -46,6 +46,21 @@ modelB
 modelC
 modelD
 ```
+
+## 2 For research
+
+### 2.1 import the module
+```
+from model.nnModel import *
+from model.corpusSolver import *
+import torch
+```
+### 2.2 how to load the data
+```
+dataClass = Corpus('./corpus/qingyun.tsv', maxSentenceWordsNum=25)
+# First parameter is your corpus path;
+# maxSentenceWordsNum will ignore the data whose words number of question or answer is too big;
+```
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
 纸上得来终觉浅，绝知此事要躬行
