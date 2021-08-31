@@ -61,6 +61,38 @@ dataClass = Corpus('./corpus/qingyun.tsv', maxSentenceWordsNum=25)
 # First parameter is your corpus path;
 # maxSentenceWordsNum will ignore the data whose words number of question or answer is too big;
 ```
+Also you can load your corpus. Only your file content formats need to be consistent:
+```
+Q A
+Q A
+...
+```
+Every line is a question and a answer with a '\t' split.
+The corpus comes from https://github.com/codemayq/chinese_chatbot_corpus, you can get larger corpus from this Github.
+
+### 2.3 How to train your model
+First you need to create a Seq2Seq object.
+
+```
+model = Seq2Seq(dataClass, featureSize=256, hiddenSize=256, 
+                attnType='L', attnMethod='general', 
+                encoderNumLayers=3, decoderNumLayers=2, 
+                encoderBidirectional=True, 
+                device=torch.device('cuda:0'))
+
+
+First parameter is your corpus class object.
+featureSize is your word vector size;
+hiddenSize is your RNN hidden state size;
+attnType is your attention type. It can be 'B' for using Bahdanau Attention Structure or 'L' for using Luong Structure;
+attnMethod is Luong Attention Method. It can be 'dot', 'general' or 'concat'.
+encoderNumLayers is the layer number of your encoder RNN;
+decoderNumlayers is the layer number of your decoder RNN;
+encoderBidirectional is if your encoder RNN is bidirectional;
+device is your building environment. If using CPU, then device=torch.device('cpu'); if using GPU, then device=torch.device('cuda:0');
+```
+
+
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
 纸上得来终觉浅，绝知此事要躬行
