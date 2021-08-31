@@ -14,7 +14,7 @@ Thanks very much for the corpus summarized and processed by the author.
 ![image](https://github.com/chengkangck/chatbot_pytorch/blob/main/images/model1.PNG)
 ![image](https://github.com/chengkangck/chatbot_pytorch/blob/main/images/seq2seq.png)
 
-** Attention ** :
+**Attention** :
 
 - [1] Bahdanau D, Cho K, Bengio Y. Neural machine translation by jointly learning to align and translate[J]. arXiv preprint arXiv:1409.0473, 2014.
 - [2] Luong M T, Pham H, Manning C D. Effective approaches to attention-based neural machine translation[J]. arXiv preprint arXiv:1508.04025, 2015.
