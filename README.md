@@ -121,7 +121,58 @@ First parameter is the name of model saved.
 Ok, I know you are too lazy to train your own model. Also you can download my trained model. I will upload my model to the cloud and share the link and password.
 ![image](https://github.com/chengkangck/chatbot_pytorch/blob/main/images/modeltrained.PNG)
 
+### 2.4 How to use your model to build a chatbot
+First you need to create a Chatbot object.
+```
+chatbot = Chatbot('model.pkl')
+First parameter is your model path;
 
-## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
+```
+Then you can use the greedy search to generate the answer.
+chatbot.predictByGreedySearch("你好啊")
+First parameter is your question;
 
-纸上得来终觉浅，绝知此事要躬行
+It will return the answer like "你好,我就开心了". Also you can plot the attention by showAttention=True. Or you can use the beam search to generate the answer.
+
+```
+chatbot.predictByBeamSearch("什么是ai", isRandomChoose=True, beamWidth=10)
+First parameter is your question;
+isRandomChoose determines whether probability sampling is performed in the final beamwidth answers.
+beamWidth is the search width in beam search;
+```
+It will return the answer like "反正不是苹果". Also you can show the probabilities of the beamwidth answers by showInfo=True.
+
+### 2.5 How to use a trained word embedding
+First you need to calculate 4 variables:
+```
+id2word: a list of word, and the first two words have to be "<SOS>" and "<EOS>", e.g., ["<SOS>", "<EOS>", "你", "天空", "人工智能", "中国", ...];
+word2id: a dict with the key of word and the value of id, corresponding to id2word, e.g., {"<SOS>":0, "<EOS>":1, "你":2, "天空":3, "人工智能":4, "中国":5, ...};
+wordNum: the total number of words. It is equal to len(id2word) or len(word2id);
+wordEmb: the word embedding array with shape (wordNum, featureSize) and the word order need to be consistent with id2word or word2id; you can random initialize the vector or "<SOS>" and "<EOS>";
+
+```
+Then add first three variables as parameters when you load the data.
+
+```
+dataClass = Corpus(..., id2word=id2word, word2id=word2id, wordNum=wordNum)
+```
+
+Next you need to create the word embedding object.
+```
+embedding = torch.nn.Embedding.from_pretrained(torch.tensor(wordEmb))
+```
+Finally add the embedding parameter when you create the Seq2Seq object.
+
+```
+model = Seq2Seq(..., embedding=embedding)
+```
+Also you can download a trained word embedding from https://github.com/Embedding/Chinese-Word-Vectors.
+Thanks very much for the trained word embedding provided by the author.
+
+### Future work
+For other functions such as data enhance, etc, please dig for yourselves.
+
+
+
+The learning material fot the seq2seq_machine translation_detoen.ipynb. https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
+
