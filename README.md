@@ -91,7 +91,34 @@ decoderNumlayers is the layer number of your decoder RNN;
 encoderBidirectional is if your encoder RNN is bidirectional;
 device is your building environment. If using CPU, then device=torch.device('cpu'); if using GPU, then device=torch.device('cuda:0');
 ```
+Then you can train your model.
 
+```
+model.train(batchSize=1024, epoch=500)
+
+```
+```
+
+batchSize is the number of data used for each train step;
+epoch is the total iteration number of your training data;
+
+```
+And the log will be print like follows:
+
+```
+...
+After iters 6540: loss = 0.844; train bleu: 0.746, embAve: 0.754; 2034.582 qa/s; remaining time: 48096.110s;
+After iters 6550: loss = 0.951; train bleu: 0.734, embAve: 0.755; 2034.518 qa/s; remaining time: 48092.589s;
+After iters 6560: loss = 1.394; train bleu: 0.735, embAve: 0.759; 2034.494 qa/s; remaining time: 48088.128s;
+...
+```
+Finally you need to save your model for future use.
+```
+model.save('model.pkl')
+First parameter is the name of model saved.
+
+```
+Ok, I know you are too lazy to train your own model. Also you can download my trained model.
 
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
