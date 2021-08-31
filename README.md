@@ -31,6 +31,21 @@ Thanks very much for the corpus summarized and processed by the author.
 
 - Test model
 
+```
+data
+  qingyun.tsv   # Corpus
+model
+  model.py      #seq2seq model
+  pre processing.py #data preproessing
+requirements.txt
+train.py
+text.py
+demo.py
+modelA
+modelB
+modelC
+modelD
+```
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
 纸上得来终觉浅，绝知此事要躬行
