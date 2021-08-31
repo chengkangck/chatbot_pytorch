@@ -118,7 +118,9 @@ model.save('model.pkl')
 First parameter is the name of model saved.
 
 ```
-Ok, I know you are too lazy to train your own model. Also you can download my trained model.
+Ok, I know you are too lazy to train your own model. Also you can download my trained model. I will upload my model to the cloud and share the link and password.
+![image](https://github.com/chengkangck/chatbot_pytorch/blob/main/images/modeltrained.PNG)
+
 
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
