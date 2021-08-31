@@ -19,6 +19,18 @@ Thanks very much for the corpus summarized and processed by the author.
 - [1] Bahdanau D, Cho K, Bengio Y. Neural machine translation by jointly learning to align and translate[J]. arXiv preprint arXiv:1409.0473, 2014.
 - [2] Luong M T, Pham H, Manning C D. Effective approaches to attention-based neural machine translation[J]. arXiv preprint arXiv:1508.04025, 2015.
 
+### 1.3 Project flow
+
+- Data preprocessing
+
+- Data loading
+
+- Model building
+
+- Training model
+
+- Test model
+
 ## https://www.cnblogs.com/jfdwd/p/11090382.html  Pytorch learning records- torchtext and Pytorch examples (using neural network Seq2Seq code)
 
 纸上得来终觉浅，绝知此事要躬行
