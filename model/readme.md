@@ -1,8 +1,8 @@
 requirement
 
-python3.7
-pytorch 1.1
-notebook
-pycharm
+-python3.7
+- pytorch 1.1
+- notebook
+- pycharm
 
-models: https://share.weiyun.com/5Yb4vI4
+ part of the models: https://share.weiyun.com/5Yb4vI4
